@@ -84,6 +84,10 @@ button {
   align-items: center;
 }
 
+#data {
+  border-radius: 10px;
+}
+
 @media screen and (min-width: 1000px) {
   #root {
     flex-direction: column;

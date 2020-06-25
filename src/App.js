@@ -4,19 +4,22 @@ import "./App.css";
 
 function App() {
   const [generated, setGenerated] = useState(false);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [github, setGithub] = useState("");
+  // const [firstName, setFirstName] = useState("");
+  // const [lastName, setLastName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [github, setGithub] = useState("");
+  const [data, setData] = useState("");
   const [result, setResult] = useState("");
 
   useEffect(() => {
-    setResult(`
-    ${firstName} ${lastName}
-    ${email}
-    https://github.com/${github}
-    `);
-  }, [firstName, lastName, email, github]);
+    // setResult(`
+    // ${firstName} ${lastName}
+    // ${email}
+    // https://github.com/${github}
+    // `);
+    setResult(data);
+    // }, [firstName, lastName, email, github]);
+  }, [data]);
 
   const generate = () => {
     let qr = QRCode(0, "L");
@@ -32,11 +35,12 @@ function App() {
 
         {generated && (
           <div className="info">
-            <p>
+            {/* <p>
               {firstName} {lastName}
             </p>
             <p>{email}</p>
-            <p>https://github.com/{github}</p>
+            <p>https://github.com/{github}</p> */}
+            <p>{data}</p>
           </div>
         )}
 
@@ -50,7 +54,7 @@ function App() {
               generate();
             }}
           >
-            <div className="name">
+            {/* <div className="name">
               <input
                 type="text"
                 name="firstName"
@@ -59,7 +63,7 @@ function App() {
                 placeholder="First Name"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
-                // required
+                required
               />
               <input
                 type="text"
@@ -69,7 +73,7 @@ function App() {
                 placeholder="Last Name"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
-                // required
+                required
               />
             </div>
             <input
@@ -80,7 +84,7 @@ function App() {
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              // required
+              required
             />
             <input
               type="text"
@@ -90,17 +94,26 @@ function App() {
               placeholder="Github Username"
               value={github}
               onChange={(e) => setGithub(e.target.value)}
-              // required
-            />
+              required
+            /> */}
+            <textarea
+              name="data"
+              id="data"
+              cols="30"
+              rows="10"
+              value={data}
+              onChange={(e) => setData(e.target.value)}
+            ></textarea>
             <div id="button-container">
               <button
                 type="reset"
                 onClick={(e) => {
                   e.preventDefault();
-                  setFirstName("");
-                  setLastName("");
-                  setEmail("");
-                  setGithub("");
+                  // setFirstName("");
+                  // setLastName("");
+                  // setEmail("");
+                  // setGithub("");
+                  setData("");
                   document.getElementById("placeHolder").style.display = "none";
                 }}
               >
