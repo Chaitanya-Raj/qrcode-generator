@@ -55,6 +55,7 @@ function App() {
                 type="text"
                 name="firstName"
                 id="firstName"
+                maxLength="20"
                 placeholder="First Name"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
@@ -64,6 +65,7 @@ function App() {
                 type="text"
                 name="lastName"
                 id="lastName"
+                maxLength="20"
                 placeholder="Last Name"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
@@ -74,6 +76,7 @@ function App() {
               type="email"
               name="email"
               id="email"
+              maxLength="35"
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -83,6 +86,7 @@ function App() {
               type="text"
               name="github"
               id="github"
+              maxLength="20"
               placeholder="Github Username"
               value={github}
               onChange={(e) => setGithub(e.target.value)}
@@ -91,11 +95,13 @@ function App() {
             <div id="button-container">
               <button
                 type="reset"
-                onClick={() => {
+                onClick={(e) => {
+                  e.preventDefault();
                   setFirstName("");
                   setLastName("");
                   setEmail("");
                   setGithub("");
+                  document.getElementById("placeHolder").style.display = "none";
                 }}
               >
                 Cancel
@@ -114,7 +120,9 @@ function App() {
         >
           Edit
         </button>
-        <button className="print">Print</button>
+        <button className="print" onClick={() => window.print()}>
+          Print
+        </button>
       </div>
     </>
   );

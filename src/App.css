@@ -54,6 +54,8 @@ button {
   color: white;
   border: 1px solid white;
   padding: 10px 20px;
+  transition: all 0.5s;
+  outline: 0;
 }
 
 .name {
@@ -108,9 +110,30 @@ button {
     padding: 5px 5px;
   }
 
+  button:hover {
+    transform: scale(1.1);
+    background-color: white;
+    color: rgba(0, 0, 0, 0.8);
+  }
+
   form,
   .info {
     width: 100%;
     margin: 0;
+  }
+}
+
+@media print {
+  body {
+    width: 1094px;
+    height: 1275px;
+  }
+
+  #root {
+    transform: scale(2);
+  }
+
+  button {
+    display: none;
   }
 }
