@@ -1,12 +1,16 @@
 body {
-  background: #000;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  background: #333;
 }
 
 .container {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 30px;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,6 +20,7 @@ body {
 form {
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
 }
 
 #button-container {
@@ -26,12 +31,27 @@ form {
 
 input,
 button {
-  margin: 10px;
-  padding: 5px 10px;
+  margin: 10px 5px;
+  padding: 5px 5px;
+}
+
+.name {
+  display: flex;
+}
+
+.info {
+  color: white;
+  font-size: 1.2rem;
+  margin: 20px 10px 0 10px;
+  text-align: center;
 }
 
 @media screen and (min-width: 1000px) {
   .container {
     flex-direction: row;
+  }
+
+  .info {
+    margin-left: 50px;
   }
 }
