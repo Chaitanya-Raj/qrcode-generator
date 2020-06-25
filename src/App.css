@@ -86,6 +86,7 @@ button {
 
 #data {
   border-radius: 10px;
+  margin: 20px;
 }
 
 @media screen and (min-width: 1000px) {
