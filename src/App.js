@@ -1,24 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import QRCode from "qrcode-generator";
+import "./App.css";
 
 function App() {
+  const [generated, setGenerated] = useState(false);
+
+  useEffect(() => {
+    let qr = QRCode(0, "L");
+    qr.addData("x");
+    qr.make();
+    document.getElementById("placeHolder").innerHTML = qr.createImgTag();
+  }, [generated]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <div id="placeHolder"></div>
+      <form>
+        <input type="text" name="" id="" />
+        <input type="email" name="" id="" />
+        <input type="text" name="" id="" />
+        <div id="button-container">
+          <button type="reset" className="button">
+            Cancel
+          </button>
+          <button type="submit" className="button">
+            Create
+          </button>
+        </div>
+      </form>
     </div>
   );
 }
