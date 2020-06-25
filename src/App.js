@@ -45,6 +45,8 @@ function App() {
             onSubmit={(e) => {
               e.preventDefault();
               setGenerated(true);
+              document.getElementById("placeHolder").style.display = "block";
+              document.getElementById("bottom").style.display = "flex";
               generate();
             }}
           >
@@ -56,7 +58,7 @@ function App() {
                 placeholder="First Name"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
-                required
+                // required
               />
               <input
                 type="text"
@@ -65,7 +67,7 @@ function App() {
                 placeholder="Last Name"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
-                required
+                // required
               />
             </div>
             <input
@@ -75,7 +77,7 @@ function App() {
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              required
+              // required
             />
             <input
               type="text"
@@ -84,7 +86,7 @@ function App() {
               placeholder="Github Username"
               value={github}
               onChange={(e) => setGithub(e.target.value)}
-              required
+              // required
             />
             <div id="button-container">
               <button
@@ -103,8 +105,17 @@ function App() {
           </form>
         )}
       </div>
-      <button onClick={() => setGenerated(false)}>Edit</button>
-      <button className="print">Print</button>
+      <div id="bottom">
+        <button
+          onClick={() => {
+            setGenerated(false);
+            document.getElementById("bottom").style.display = "none";
+          }}
+        >
+          Edit
+        </button>
+        <button className="print">Print</button>
+      </div>
     </>
   );
 }
