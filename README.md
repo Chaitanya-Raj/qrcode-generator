@@ -1,3 +1,15 @@
+# QRCode-Generator
+
+## Objective
+
+To create an app which can generate a QRCode with the inputs provided by the users.
+
+## Learning Outcomes
+
+- Learned a bit about how the QRCodes work.
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
